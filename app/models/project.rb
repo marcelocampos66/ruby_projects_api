@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   validates :framework, length: { minimum: 2 }
   validates :description, length: { minimum: 6 }
 
+  has_many :tags
+
 end

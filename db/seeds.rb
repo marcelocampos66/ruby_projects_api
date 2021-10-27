@@ -1,31 +1,44 @@
 # mock projects
 Project.create([
   {
-    name: 'project1',
-    language: 'language1',
-    framework: 'framework1',
-    description: 'description1',
+    name: 'Super Heroes List',
+    language: 'JavaScript',
+    framework: 'React',
+    description: 'Por meio de uma API, o FrontEnd poderá criar usuários que terão acesso a base de mais de 700 personsagens para consulta e criação de sua própria lista de personagens favoritos, além disso, também será possível alterar os dados cadastrados.',
     image: 'https://www.significados.com.br/foto/hqdefault_sm.jpg',
   },
   {
-    name: 'project2',
-    language: 'language2',
-    framework: 'framework2',
-    description: 'description2',
+    name: 'TypeScript Delivery App',
+    language: 'TypeScript',
+    framework: 'React',
+    description: 'A aplicação se trata de um e-commerce de bebidas. Onde o usuário poderá se cadastrar, adicionar bebidas ao carrinho, escolher um vendedor, confirmar a compra e acompanhar em tempo real o status do seu pedido.',
     image: 'https://www.significados.com.br/foto/hqdefault_sm.jpg',
   },
+])
+
+Tag.create([
   {
-    name: 'project3',
-    language: 'language3',
-    framework: 'framework3',
-    description: 'description3',
-    image: 'https://www.significados.com.br/foto/hqdefault_sm.jpg',
+    name: 'JavaScript',
+    project_id: 1,
   },
   {
-    name: 'project4',
-    language: 'language4',
-    framework: 'framework4',
-    description: 'description4',
-    image: 'https://www.significados.com.br/foto/hqdefault_sm.jpg',
+    name: 'React',
+    project_id: 1,
+  },
+  {
+    name: 'Styled-Components',
+    project_id: 1,
+  },
+  {
+    name: 'TypeScript',
+    project_id: 2,
+  },
+  {
+    name: 'React',
+    project_id: 2,
+  },
+  {
+    name: 'Styled-Components',
+    project_id: 2,
   },
 ])
