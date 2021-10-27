@@ -5,11 +5,20 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    projects = Project.all;
+    data = []
+    projects = Project.all
+    for project in projects do
+      tags = Tag.where(project_id: project.id).all
+      object = {
+        project: project,
+        tags: tags,
+      }
+      data.push(object)
+    end
     render json: {
       status: 'SUCCESS',
       message:'Projects loaded',
-      data: projects,
+      data: data,
     }, status: :ok
   end
 
@@ -17,10 +26,12 @@ class ProjectsController < ApplicationController
   def show
     project = Project.find(params[:id])
     if project
+      tags = Tag.where(project_id: project.id).all
       render json: {
         status: 'SUCCESS',
         message:'Project loaded',
         data: project,
+        tags: tags,
       }, status: :ok
     else
       render json: {
@@ -34,7 +45,6 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     project = Project.new(project_params)
-
     if project.save
       render json: {
         status: 'SUCCESS',
@@ -62,7 +72,7 @@ class ProjectsController < ApplicationController
     else
       render json: {
         status: 'ERROR',
-        message: 'Project updated',
+        message: 'Project not updated',
         data: project.errors,
       }, status: :unprocessable_entity
     end
